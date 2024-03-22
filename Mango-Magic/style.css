@@ -1,0 +1,111 @@
+
+body {
+    font-family: Arial, sans-serif;
+   
+}
+.Logincontainer {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+    background:linear-gradient(darkorange,orange,white) ;
+}
+.Logincontainer h2 {
+    text-align: center;
+}
+.username {
+    margin-bottom: 20px;
+}
+.username label {
+    display: block;
+    margin-bottom: 5px;
+}
+.username input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+.submit:hover {
+    background-color: #0056b3;
+}
+li{
+    list-style: none;
+    margin-left: -30px;
+}
+.fs-4{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight: bolder;
+        font-size: xx-large;
+        color: rgb(242, 22, 22);
+        width: 210px;
+        height: 50px;
+    }
+.fs-4-1{
+    font-family: cursive;
+    color: rgb(23, 23, 2);
+    font-weight: lighter;
+    font-size: medium;
+}
+.fs-icon{
+    img{
+        width: 100px;
+        height: 100px;
+    }
+}
+.bodyContainer{
+    display: flex;
+
+}
+.sProductDetails > ul > li {
+list-style: none;
+border: 1px solid #ccc;
+width: 230px;
+padding: 10px;
+margin: 5px;
+
+}
+.sProductDetails {
+border: 1px solid #a60909;
+margin: 10px;
+padding: 10px;
+width: 280px;
+display: flex;
+
+img {
+width: 120px;
+height: 100px;
+}
+}
+
+.sProductDetails > ul {
+margin: 5px;
+padding: 5px;
+}
+.actualPrice {
+font-weight: bold;
+color: rgb(255, 106, 0);
+text-decoration: underline;
+text-decoration-line: line-through;
+}
+.discountedPrice {
+color: green;
+font-weight: bold;
+}
+
+
+.itemsListBox > li {
+float: left;
+}

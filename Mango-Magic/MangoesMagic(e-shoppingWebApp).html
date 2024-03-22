@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/icon.webp">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Mango Magic </title>
+   
+</head>
+<body>
+
+    
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" style="background:linear-gradient(yellow,yellow,white);">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-icon"> <img src="images/icon.webp" alt=""></span>
+          <span class="fs-4">Mangoes Magic
+           <span class="fs-4-1">
+             Sweet, juicy, mangolicious ! 
+           </span>
+          </span> 
+
+
+        </a>
+        <ul class="nav nav-pills" >
+         
+          <li class="nav-item"><a href="#" class="nav-link" style="margin: 20px;">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link" style="margin: 20px;">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link" style="margin: 20px;">FAQs</a></li>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
+            style="width: 70px;height: 40px; background-color: rgb(255, 149, 0)
+            ; color: maroon;margin: 20px;">
+              Login
+            </button>
+          <li class="nav-item"><a href="#" class="nav-link" style="margin: 20px;">About</a></li>
+          <li style="margin: 20px;"> Cart <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+          </svg></li>
+          
+        </ul>
+      </header>
+    
+      <marquee behavior="" direction="left to right" style="color: red;">Alert !!!!!!! Summer special offers are comming . Add to Cart</marquee>
+      <div class="bodyContainer">
+      <div class="mangoTreeImg">
+        <img src="images/mangoTree.png" alt="">
+      </div>
+
+    <div class="Logincontainer">
+        <h2>Login User</h2>
+        <form id="loginForm">
+            <div class="username">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            
+           
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+            </div>
+            <ul>
+                <li>
+                    <input type="checkbox" id="rememberMe" name="rememberMe" > Remember me
+                </li>
+            </ul>
+
+            <button type="submit" class="submit" onclick="addProductDetails(productDetails)">Login</button>
+        </form>
+    </div>
+   
+
+    <div class="itemsListBox">
+
+    </div>
+</div>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username && password) {
+        alert("Login successful! ");
+        $(".Logincontainer").hide();
+        showProducts(); 
+    } else {
+        alert("Invalid username or password. Please try again.");
+    }
+});
+
+    var rememberCheck = document.querySelector("#rememberMe");
+    var userInput = document.querySelector("#username");
+    var passInput = document.querySelector("#password");
+
+    if (localStorage.checkbox && localStorage.checkbox !== "") {
+        rememberCheck.checked = true;
+        userInput.value = localStorage.username;
+        passInput.value = localStorage.password;
+    } else {
+        rememberCheck.checked = false;
+        userInput.value = "";
+        passInput.value = "";
+    }
+
+    var loginUser = () => {
+        if (rememberCheck.checked && userInput.value !== "" && passInput.value !== "") {
+            localStorage.username = userInput.value;
+            localStorage.password = passInput.value;
+            localStorage.checkbox = rememberCheck.checked; 
+        } else {
+            localStorage.username = "";
+            localStorage.password = ""; 
+            localStorage.checkbox = "";
+        }
+    };
+
+    var pDetails = [
+        {
+            name: "Banganpalli",
+            actualPrice: 210,
+            discountPercent: 12,
+            category: "Fruits",
+            rating: 4.5,
+            imageUrl: "https://img2.exportersindia.com/product_images/bc-full/dir_179/5359674/banganpalli-mango-1513602725-3529318.jpeg",
+        },
+        {
+            name: "Alphonso",
+            actualPrice: 420,
+            discountPercent: 2,
+            category: "Fruits",
+            rating: 5,
+            imageUrl:"https://3.imimg.com/data3/WR/EY/MY-10158542/10009510_1413323652258289_1753725640_n-500x500.jpg",
+        },
+        {
+            name: "Kesar",
+            actualPrice: 180,
+            discountPercent: 9,
+            category: "Fruits",
+            rating: 4.5,
+            imageUrl:"https://www.bigbasket.com/media/uploads/p/l/40075207_6-fresho-kesar-mango.jpg",
+        },
+        {
+            name: "Chinna Rasalu",
+            actualPrice: 150,
+            discountPercent: 4,
+            category: "Fruits",
+            rating: 3,
+            imageUrl:"https://www.mangopoint.in/wp-content/uploads/2022/03/Pedda-Rasalu.jpg",
+        },
+        {
+            name: "Suvarna Rekha",
+            actualPrice: 320,
+            discountPercent: 8,
+            category: "Fruits",
+            rating: 5,
+            imageUrl:"https://sahajaaharam.com/files/Mango%20-%20Suvarnarekha.jpeg",
+        },
+        {
+            name: "Kobbari Mamidi",
+            actualPrice: 130,
+            discountPercent: 13,
+            category: "Fruits",
+            rating: 3.5,
+            imageUrl:"https://www.bigbasket.com/media/uploads/p/l/20001028_1-fresho-coconut-mango.jpg",
+        },
+        {
+            name: "Cheruku Rasalu",
+            actualPrice: 430,
+            discountPercent: 18,
+            category: "Fruits",
+            rating: 4.5,
+            imageUrl:"https://5.imimg.com/data5/ECOM/Default/2023/8/331536517/FD/NY/RP/133331885/nuzividu-rasalu-500x500.webp",
+        },
+        {
+            name: "Mallika",
+            actualPrice: 180,
+            discountPercent: 6,
+            category: "Fruits",
+            rating: 5,
+            imageUrl:"https://cdn.makemygarden.com/uploads/2021/09/126.jpg",
+        },
+        {
+            name: "Himayat",
+            actualPrice: 290,
+            discountPercent: 16,
+            category: "Fruits",
+            rating: 3.5,
+            imageUrl:"https://m.media-amazon.com/images/I/41yZQTgT9OL.jpg",
+        },
+        {
+            name: "Pedda Rasalu",
+            actualPrice: 680,
+            discountPercent: 6,
+            category: "Fruits",
+            rating: 5,
+            imageUrl:"https://mangoesmart.com/Images/Product/pedarasalu.png",
+        },
+        {
+            name: "Panchadara Kalisam",
+            actualPrice: 380,
+            discountPercent: 19,
+            category: "Fruits",
+            rating: 4.5,
+            imageUrl:"https://storeassets.im-cdn.com/temp/cuploads/ap-south-1:58d5c101-a628-449b-9008-93f831bca17b/onlinemangoes/products/1649748624454Panchadara-Kalasam-1_0x0_webp.jpg",
+        }
+        
+    ];
+
+         var addProductDetails = (productDetails) => {
+                    
+            var mainLiTag = document.createElement("li");
+                mainLiTag.setAttribute("class", "sProductDetails");
+            var ulTag = document.createElement("ul");
+            
+            var imageli = document.createElement("li");
+            var imgTag = document.createElement("img");
+            imgTag.setAttribute("src", productDetails.imageUrl);
+            imageli.append(imgTag);
+            ulTag.append(imageli);
+
+            var li1 = document.createElement("li");
+            li1.innerText = "Type : " + productDetails.name;
+            ulTag.append(li1);
+
+            var li2 = document.createElement("li");
+            li2.innerText = "Price (per Kg) : ₹";
+
+            var span1 = document.createElement("span");
+            span1.innerText = productDetails.actualPrice;
+            span1.setAttribute("class", "actualPrice");
+
+             var span2 = document.createElement("span");
+            span2.innerText =
+            productDetails.actualPrice -
+            (productDetails.actualPrice * productDetails.discountPercent) / 100;
+            span2.setAttribute("class", "discountedPrice");
+            li2.append(span1);
+            li2.append(span2);
+            ulTag.append(li2);
+
+            var li3 = document.createElement("li");
+            li3.innerText = "Category: " + productDetails.category;
+            ulTag.append(li3);
+
+            var li4 = document.createElement("li");
+            li4.innerText = "Rating: " + productDetails.rating;
+            ulTag.append(li4);
+            mainLiTag.append(ulTag);
+                    document.querySelector(".itemsListBox").append(mainLiTag);
+                };
+
+                var showProducts = () => {
+                    for (var i = 0; i < pDetails.length; i++) {
+                        addProductDetails(pDetails[i]);
+                    }
+                };
+
+    
+</script>
+
+    </body>
+    </html>
